@@ -1,0 +1,29 @@
+<html>
+  <head> <!-- html up until here, notice the comment syntax -->
+    <script type="application/javascript"> //-- we're now javascripting
+
+      function draw() { //this animation function, to be called later on
+        //locate the "myCanvas" element from the <body>
+        var canvas = document.getElementById("myCanvas"); 
+        if (canvas.getContext) { // checks if this browser supports canvas!
+
+          /*** meat and potaters start here ***/
+          var ctx = canvas.getContext("2d"); //init canvas as 2d
+
+          ctx.fillStyle="rgb(200,0,0)";   //set fill color (r,g,b)
+          ctx.fillRect(10, 10, 300, 300); //draw a rectangle (x,y,w,h)
+        } 
+      }
+    </script>
+
+  </head>
+  <!-- onLoad means the browser will wait until all code is loaded 
+  before rendering *anything* -->
+  <body onload="draw();"> 
+    <!-- only two attributes for a <canvas> object are id, width, and height -->
+    <canvas id="myCanvas" width="700" height="700"></canvas> 
+  </body>
+</html>
+
+
+

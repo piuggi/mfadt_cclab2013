@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<h3>Put in some values to get started!</h3>
+		<!-- see what happens when you add an input  -->
+		<input type="input" placeholder="Value 1">
+		<input type="input" placeholder="Value 2">
+		<button onclick="addValues()" >Add Values</button>
+		<p id="result"></p>
+
+		<script type="text/javascript">
+
+			var addValues = function(){
+				console.log("button Pressed");
+				var values = document.getElementsByTagName('input');
+				var total = 0;
+				for(var i = 0; i<values.length; i++){
+					total+= parseInt(values[i].value);
+
+				}
+
+				document.getElementById("result").innerHTML=total;
+			}
+
+
+		</script>
+	</body>
+</html>

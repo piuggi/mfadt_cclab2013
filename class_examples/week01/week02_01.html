@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="myDiv"> here</div>
+
+		<script type="text/javascript">
+
+			var addUp = function( arg1 , arg2 ){
+				console.log("hit addUp!!");
+				console.log("adding: "+ arg1 +" and "+ arg2);
+				return arg1 + arg2;
+			}
+
+			var result = addUp(8, 19);
+			console.log( "result: "+ result );
+
+
+			document.getElementById("myDiv").innerHTML = result;
+
+		</script>
+	</body>
+</html>

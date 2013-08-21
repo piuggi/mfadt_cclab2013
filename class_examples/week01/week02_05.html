@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://teaching.jos.ph/cclab2013/examples/week2_05.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <style> /* some simple CSS to make the body the entire page */
+      html, body {
+        width:  100%;
+        height: 100%;
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- create canvas object -->
+    <canvas id="myCanvas" width="1442" height="942"></canvas> 
+    <script> 
+      /*** javascript commence ***/
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      //set canvas width and height to the window's w+h
+      context.canvas.width  = window.innerWidth; 
+      context.canvas.height = window.innerHeight;
+
+      //takes mouse coordinates, draws message
+      function writeMessage(x, y) { 
+        var context = canvas.getContext('2d');
+        //first clear the background
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        //or fade it out
+        context.fillStyle="rgba(255,255,255,0.1)";
+        context.fillRect(0,0,canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        var message = 'mouse x: '+ x +', y: '+ y;
+        var r = 255%x;
+        var g = 128;
+        var b = 255%y;
+        var color = "rgb("+r+","+g+","+b+")";
+        console.log(color);
+        context.fillStyle="black";
+        context.fillText(message, 10, 25);
+        context.fillStyle = "rgb("+r+","+g+","+b+")";
+        context.fillText(message, x, y);
+      }
+
+      //called when the event listener is triggered!
+      function getMousePos(canvas, evt) { 
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+      //this event listener executes code when the mouse moves 
+      canvas.addEventListener('mousemove', function(evt) { 
+        var mousePos = getMousePos(canvas, evt);
+        writeMessage(mousePos.x, mousePos.y);
+      }, false);
+    </script>
+  
+
+</body></html>
