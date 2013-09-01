@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+		 //so many elements
+		 var array = [1,2,3,4,5];
+
+		 console.log( array[3] );
+
+		 for(var i = 0; i < array.length; i++){ 
+		 	console.log("Original Array "+array[i]);		 
+		 }
+		 //pull out last element from the array
+		 array.pop();
+
+		 //pull out a specific element from 
+		 //array pass in array index to remove
+		 array.splice(3,1  );
+
+
+		 //add new elements to array
+		 array.push(12);
+		 array.push("hello");
+		 
+
+		 for(var i = 0; i <array.length; i++) console.log("New Array "+array[i] );
+
+		</script>
+	</body>
+</html>

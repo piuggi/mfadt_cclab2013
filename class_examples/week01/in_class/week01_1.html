@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>In Class Week 1</title>
+	</head>
+	<body>
+		<!-- HTML COMMENT MY DIV -->
+		<div id="one">Hello.</div>
+		<div id="two">This is CCLAB.</div>
+
+		<script type= "text/javascript">
+			var name = 'Chris'; //variable String
+			var number = 12;	//variable Integer
+
+			//native javascript
+			//accessing the document Element with an ID
+			var myDiv = document.getElementById("one");
+			//get the text inside that document element
+			var inner = myDiv.innerHTML; 
+			//printing that element to the console
+			console.log(inner);
+
+			//put the information in a browser pop up
+			//alert(inner);
+
+			var myOtherDiv = document.getElementById("two");
+			var otherInner = myOtherDiv.innerHTML;
+			console.log( otherInner );
+
+			myDiv.innerHTML = name;
+			myOtherDiv.innerHTML = number;
+
+
+		</script>
+	</body>
+</html>
