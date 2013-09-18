@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<style>
+			body{ margin: 0; 
+				  padding: 0; 
+				  width: 100%; 
+				  height:100%;
+				}
+		</style>
+	</head>
+
+	<body>
+		<p id="counter"></p>
+		<canvas id="canvas" width = "800" height = "800"></canvas>
+
+		<script type="text/javascript">
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			//console.log(canvas.width);
+			//console.log(canvas.height);
+			
+			//global Variables
+			var width = 20;
+			var height = width;
+
+			var x = 10;
+			var y = 10;
+
+			var speedX = 10;
+			var speedY = 15;
+
+			//context.fillStyle = "rgba(50, 100, 50, 30)";
+			//context.fillRect(x, y, width, height);
+
+			var counter = 0;
+			//set interval executes a function at a specific time, in a loop!
+			//setInterval(functionName, milliseconds);
+
+			setInterval(draw, 1000/60); //calling draw over time
+			
+			//draw(); //calling draw once
+
+			function draw(){
+
+				//timing counter
+				//document.getElementById("counter").innerHTML = counter;
+				context.fillStyle = 'black';//background color
+				context.fillRect(0,0, 800,800); //draw a background
+				
+				context.fillStyle = 'red'; //set the color of rectangle
+				
+				context.fillRect(x,y,width,height);//draw our rectangle
+
+				//if we are out of bounds switch our speed!
+				if(x >= canvas.width -width || x<=0 ) speedX*= -1;
+				if(y >= canvas.height - height|| y<= 0) speedY*=-1;
+
+				x += speedX; //x = x+ speedX;
+				y += speedY; //y = y+ speedY;
+
+
+			}
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="main" width="1000" height="1000"></canvas>
+		<script type="text/javascript">
+
+		//global Variables
+		var canvas = document.getElementById('main');
+		var ctx = canvas.getContext('2d');
+
+		var color = new Object();
+
+		color.r = 255;
+		color.g = 200;
+		color.b = 0;
+		color.a = 230;
+
+		var color1 = new Object();
+		color1.r = 30;
+		color1.g = 343;
+		color1.b = 23;
+		color1.a = 123;
+
+		ctx.fillStyle = returnColor(color);
+		ctx.fillStyle = returnColor(color1);
+
+		function returnColor(c){ //function to draw our colors in canvas
+
+			return "rgba("+c.r+","+c.g+","+c.b+","+c.a+")";//concat for color
+		}
+
+		var width, height;
+		width = 100;
+		height = 100;
+
+		var pos = new Object();
+
+		pos.x = 10;
+		pos.y = 15;
+
+		//end global Vars
+		ctx.fillStyle =returnColor(color);
+		ctx.fillRect(pos.x, pos.y, width, height);
+
+		canvas.addEventListener('mousemove', function(e){
+
+			//e.x & e.y vars from our mouse
+			color.r =  255%e.x; //modulus of mouse position and 255 - 255*percentage
+			color.g =  200%e.y;
+			color.b =  255%e.x;
+
+			//color.string = "rgba("+color.r+","+color.g+","+color.b+","+color.a+")";
+			ctx.fillStyle = returnColor(color);
+			ctx.fillRect(pos.x, pos.y, width, height);
+
+		});
+
+		</script>
+	</body>
+</html>

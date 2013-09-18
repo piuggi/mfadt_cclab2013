@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="main" width="1000" height = "1000"></canvas>
+		<script type="text/javascript">
+			
+			var canvas = document.getElementById('main');
+			var ctx = canvas.getContext('2d');
+
+
+
+
+			canvas.addEventListener('mousemove', function(e){ 
+
+				//this is an anonymous function
+				//it will execute the code inside of it whenever the listener is triggered
+
+				//console.log(e); //logging data about our mouse position within canvas
+
+				//console.log("x: "+e.x+ " | y: "+e.y);
+
+				ctx.fillRect(e.x, e.y, 20, 20);
+
+			});
+
+			window.addEventListener('keydown',function(e){
+
+				console.log(e.which);
+
+				if(e.which == 38)console.log('Key Up');//check for key up
+			});
+
+
+		</script>
+	</body>
+</html>

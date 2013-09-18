@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//longhand Object
+
+		var color1 = new Object();
+		color1.r = 255;
+		color1.g = 200;
+		color1.b = 212;
+		color1.a = 255;
+
+		var color2 = {
+			r : 255,
+			g : 200,
+			b : 212,
+			a : 255,
+			
+		};
+
+		color2.print = printVar;
+
+		color2.print(color1);
+
+		function printVar(v){
+
+			console.log(v);
+
+		};
+
+		//console.log(color1);
+		//console.log(color2);
+
+		</script>
+	</body>
+</html>

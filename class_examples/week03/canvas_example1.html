@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="200">
+		</canvas>
+		<script type="text/javascript">
+		
+			//get our canvas
+			var canvas = document.getElementById('canvas');
+			//set our context
+			var context = canvas.getContext('2d');
+
+			context.fillStyle = "Green"; //preset browser Colors
+
+			context.fillStyle = 'rgb(20,40,50)';
+			context.fillStyle = "rgba(200,100,30,10)"; //make our own colors with RGB or RGBA
+			context.fillRect(0,0,100,100);
+
+
+
+		</script>
+	</body>
+</html>
