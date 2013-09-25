@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery Intro 1</title>
+	<style>
+		/* CSS FOR DIVS*/
+		.new{};
+		#container{};
+
+	</style>
+</head>
+<body>
+	<div id="container">This is the normal stuff I have here.</div>
+	<div class="new"></div>
+	<div class="new"></div>
+
+	<!-- Linked Jquery library-->
+	<script src="jquery/jquery-2.0.3.min.js"></script>
+	
+	<script type="text/javascript">
+
+	//checks if the document is ready to load
+	$(document).ready(function(){
+		console.log('here');
+		
+		//document.getElementById('container').innerHTML = 'Start'; //native js way
+
+		$("#container").append('something');//jquery way
+		$("#container").prepend('The Start of our story. ');
+		$(".new").append('new div!'); //jquery with class
+
+	});
+
+	</script>
+</body>
+</html>
+
+
+
