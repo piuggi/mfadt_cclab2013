@@ -9,9 +9,9 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
-			var api_key = 'f3e0b0523a607c49';
+			var api_key = '____________';
 			//sample url
-			//http://api.wunderground.com/api/f3e0b0523a607c49/conditions/q/CA/San_Francisco.json
+
 
 			var api_obj = {
 
@@ -22,7 +22,7 @@
 
 			for(var i = 0; i < api_obj.state.length; i++){
 
-				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/'+api_obj.state[i]+'/'+api_obj.city[i]+'.json';
+				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/'+api_obj.state[i]+'/'+api_obj.city[i]+'.json?callback=?';
 
 				//console.log(url);
 
