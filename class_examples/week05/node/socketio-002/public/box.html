@@ -1,0 +1,24 @@
+<html style="padding: none; margin: none;">
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io.connect('http://localhost:8080');
+						
+			socket.on('box', function(data){
+				console.log(data);
+				document.getElementById('box').style.left = data.x+'px';
+				document.getElementById('box').style.top = data.y+'px';
+				
+				document.getElementById('box2').style.left = data.x+5+'px';
+				document.getElementById('box2').style.top = data.y+5+'px';
+				
+			});											
+			
+		</script>
+	</head>
+	<body style="padding: none; margin: none;">
+		<section id="box" style="position: absolute; background: red; width: 10px; height: 10px;"></section>
+		<section id="box2" style="position: absolute; background: blue; width: 10px; height: 10px;"></section>
+		
+	</body>
+</html>

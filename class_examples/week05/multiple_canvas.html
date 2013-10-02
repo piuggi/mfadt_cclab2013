@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link href="" type="stylesheet/css">
+	</head>
+	<body>
+		<canvas id="dallas" width="400" height="400"></canvas>
+		<canvas id="austin" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+		<canvas id="fort-worth" width="400" height="400"></canvas>
+
+		<script type="text/javascript">
+		var canvases = document.getElementsByTagName('canvas'); //get all elements of certain type as array
+		var contexts = [];
+		console.log(canvases);
+
+		for(var i = 0; i<canvases.length; i++){
+			console.log(canvases[i]);
+			var context = canvases[i].getContext('2d');
+			
+			//contexts.push(canvases[i].getContext('2d'));
+			//if(i == 1) context.fillStyle='green';
+			//else context.fillStyle='red';
+			
+			switch(i){ //switch case
+
+				case 0: //checks for each condition to find a match
+					context.fillStyle='green';
+					context.fillRect(0,0,200,200);
+				break;
+
+				case 1:
+					context.fillStyle='blue';
+					context.fillRect(200,0,200,200);
+				break;
+
+				case 2:
+					context.fillStyle='orange';
+					context.fillRect(200,200,200,200);
+				break; //where the case ends
+
+				case 8:
+					context.fillStyle='orange';
+					context.fillRect(200,200,200,200);
+				break; //where the case ends
+
+				default: //anything that doesn't match above
+					context.fillStyle='black';
+					context.fillRect(0,0,400,400);
+ 				break;
+
+			}
+
+			//context.fillRect(0,0,400,400);
+		}
+
+		contexts[0].fillStyle = 'red';
+		contexts[1].fillStyle = 'blue';
+		contexts[2].fillStyle = 'orange';
+
+
+
+		</script>
+	</body>
+</html>

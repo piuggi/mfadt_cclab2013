@@ -1,0 +1,33 @@
+<html style="padding: 0; margin: 0;">
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			var socket = io.connect('http://localhost:8080');
+			socket.on('news', function(data){
+				console.log(data);
+				socket.emit('my other event', {my:'data'});
+			});
+		</script>
+		
+		<script>
+			
+			$(document).ready(function(){
+				
+				$('#main').mousemove(function(e){
+										
+					socket.emit('mouse event', {x: e.pageX, y: e.pageY });
+					console.log('{x:'+e.pageX+',y:'+e.pageY+'}');
+					
+				});
+				
+								
+			});
+			
+		</script>
+	
+	</head>
+	<body id="main" style="padding: 0; margin: 0;">
+		
+	</body>
+</html>
