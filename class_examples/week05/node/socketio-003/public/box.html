@@ -1,0 +1,33 @@
+<html style="padding: none; margin: none;">
+	<head>
+		<!-- Link to the Socket.io Module in the browser-->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+
+			//connect to our socket via the port we specified in the server
+
+			var socket = io.connect('http://localhost:8080');
+			
+			//when we receive a message on the socket has an event called box - run the function
+			socket.on('box', function(data){
+				console.log(data);
+
+				//manipulate css with javascript
+				//we use +'px' - because css formats need px values after numbers.
+				document.getElementById('box').style.left = data.x+'px';
+				document.getElementById('box').style.top = data.y+'px';
+
+				//challenge! 
+				//how would you control a box with canvas?
+				
+				
+			});											
+			
+		</script>
+	</head>
+	<body style="padding: none; margin: none;">
+		<!--  set the box into absolute position and augement the css with javascript-->
+		<section id="box" style="position: absolute; background: red; width: 10px; height: 10px;"></section>
+		
+	</body>
+</html>
