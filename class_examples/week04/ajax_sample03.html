@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+	<script type="text/javascript" src="jquery/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var api_key = 'f3e0b0523a607c49';
+			//sample url
+
+			var json_array = []; //array to store all our information in
+
+
+			var api_obj = {
+
+					state:[ 'NJ', 'CA', 'MX', 'CA', 'TX', 'ID' ],
+					city: [ 'Hoboken', 'San_Diego', 'Mexico_City_Airport', 'Sacramento', 'Paris', 'Boise' ]
+
+			};
+
+			for(var i = 0; i < api_obj.state.length; i++){
+
+				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/'+api_obj.state[i]+'/'+api_obj.city[i]+'.json?callback=?';
+
+				//console.log(url);
+
+				$.getJSON(url,function(json){
+					
+					var data = json.current_observation; //create shortcut to data
+
+					json_array.push(data); //pushing all the data into the array
+
+					var temp = data.temperature_string;
+					var humidity = data.relative_humidity;
+					var dewpoint = data.dewpoint_string;
+					var city = data.display_location.city;
+
+					var html = "<div>";
+					html += "<h1>City: "+city+"</h1>";
+					html += "<p>Temperature: "+temp+"</p>";
+					html += "<p>Humidity: "+humidity+"</p>";
+					html += "<p>Dew Point: "+dewpoint+" </p>";
+					html += "</div>";
+
+					//console.log(html);
+					$('body').append(html);
+
+				});
+			}
+
+			console.log("DATA");
+			console.log(json_array);
+
+			for(var i = 0; i<json_array.length; i++){
+
+				var temp = json_array[i].feelslike_c;
+
+				if(json_array[i].display_location.city =='my city'){
+
+					//conditional to check for cities
+				}
+				console.log("temp: "+ temp);
+
+			}
+
+
+		});
+
+	</script>
+</body>
+</html>

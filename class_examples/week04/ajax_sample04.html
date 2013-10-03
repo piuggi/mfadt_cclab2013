@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+
+		<div><!-- Space on our page to put our data -->
+			<h1 id="city">City: </h1>
+			<p id="humidity">Humidity: </p>
+			<p id="temp">Temperature: </p>
+			<p id="dew_point">Dew Point: </p>
+		</div>
+
+		<script type="text/javascript" src="jquery/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				//console.log('ready');
+
+				var api_key = 'f3e0b0523a607c49';
+				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/CA/San_Francisco.json?callback=?';
+
+				$.getJSON(url,function(json){
+					//console.log(json);//output our data so we can debug
+					console.log(json.current_observation); //output our data so we can debug
+
+					var city = json.current_observation.display_location.city;
+					$('#city').append(city); //append data into a div
+
+					var dew_point = json.current_observation.dewpoint_string;
+					$('#dew_point').append(dew_point); 
+
+					var temp = json.current_observation.temperature_string;
+					$('#temp').append(temp);
+
+					var humidity = json.current_observation.relative_humidity;
+					$('#humidity').append(humidity);
+
+					//console.log(json);
+				});
+
+				//second call to get forcast for san fracisco vs current conditions
+				var url2 = 'http://api.wunderground.com/api/'+api_key+'/forecast/q/CA/San_Francisco.json?callback=?';
+				$.getJSON(url2,function(json){
+					//console.log(json);
+					console.log(json.forecast);
+				});
+
+			});
+
+		</script>
+	</body>
+</html>
