@@ -3,10 +3,12 @@
 //**IMPORTANT**//
 
 //npm install ntwitter  - to download the necessary modules
+//reference here:: https://github.com/AvianFlu/ntwitter
+
+
 
 //node server.js - to run the server file in node.
 
-//https://github.com/AvianFlu/ntwitter
 
 var twitter = require('ntwitter'); //connect to the twitter module
 
