@@ -1,23 +1,31 @@
 <html style="padding: 0; margin: 0;">
 	<head>
+		<!-- Link to the Socket.io Module in the browser-->
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="jquery-1.9.1.min.js"></script>
+		<!-- Link to jquery in the browser-->
+		<script src="js/jquery-1.9.1.min.js"></script>
 		<script>
-			var socket = io.connect('http://localhost:8080');
+			//connect to our socket via the port we specified in the server
+			var socket = io.connect('http://localhost:8080'); 
+
+			//if the socket gets connected send data back
 			socket.on('news', function(data){
 				console.log(data);
 				socket.emit('my other event', {my:'data'});
 			});
-		</script>
-		
-		<script>
-			
+
+			//jquery connects to the DOM
 			$(document).ready(function(){
 				
+				//jquery mouse movement if the mouse moves inside our body tag
+				//is is the same a addEventListener
 				$('#main').mousemove(function(e){
+
+					//console.log(e); //print out the event data	
+					//console.log('{x:'+e.pageX+',y:'+e.pageY+'}'); //this data is the x & y we're looking
 					
+					//send our data back to the server so we can find out what our users are doing on the page
 					socket.emit('mouse event', {x: e.pageX, y: e.pageY });
-					console.log('{x:'+e.pageX+',y:'+e.pageY+'}');
 					
 				});
 				

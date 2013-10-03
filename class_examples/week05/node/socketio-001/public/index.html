@@ -1,29 +1,33 @@
 <html style="padding: 0; margin: 0;">
 	<head>
+		<!-- Link to the Socket.io Module in the browser-->
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script>
 		<script>
-			var socket = io.connect('http://localhost:8080');
+			//connect to our socket via the port we specified in the server
+			var socket = io.connect('http://localhost:8080'); 
+
+			//if the socket gets connected send data back
 			socket.on('news', function(data){
+				//log the data that the browser sends
+				console.log('MESSAGE FROM SERVER');
 				console.log(data);
-				socket.emit('my other event', {my:'data'});
+				//send back a note - we create the type and call it 'special' here 
+				//this can be anything you'd like
+				//notice that the data we send is json key: value pairs
+				socket.emit('special', {my:'data'});
 			});
-		</script>
-		
-		<script>
-			
-			$(document).ready(function(){
-				
-				$('#main').mousemove(function(e){
-										
-					socket.emit('mouse event', {x: e.pageX, y: e.pageY });
-					console.log('{x:'+e.pageX+',y:'+e.pageY+'}');
-					
-				});
-				
-								
-			});
-			
+
+			//we can then emit stuff on an interval to keep a persistent connection with the server
+			//if we wanted the server could parse each response and send us data back
+			//this could be instructions or new data like a twitter feed
+			setInterval(sendSocket,1000);
+			var count = 0;
+
+			function sendSocket(){
+				//if we want to send more information we package it like json
+				socket.emit('special',{more:'info', name: 'blank', count: count});
+				count++;
+			}
 		</script>
 	
 	</head>
