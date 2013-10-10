@@ -1,0 +1,37 @@
+<html style="padding: 0; margin: 0;">
+	<head>
+		<!-- Link to the Socket.io Module in the browser-->
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			//connect to our socket via the port we specified in the server
+			
+			$(document).ready(function(){
+
+				var socket = io.connect('http://localhost:8080'); 
+
+
+
+				socket.on('twitter',function(data){
+					console.log(data);
+					var html = "<div class='tweet'><h2>";
+						html += data.text;
+						html += "</h2></div>";
+
+					$('body').prepend(html);
+
+				});
+
+
+
+
+
+			});
+
+		</script>
+	
+	</head>
+	<body id="main" style="padding: 0; margin: 0;">
+		
+	</body>
+</html>
