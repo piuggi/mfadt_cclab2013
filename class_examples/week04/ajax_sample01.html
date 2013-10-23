@@ -17,7 +17,7 @@
 			$(document).ready(function(){
 				//console.log('ready');
 
-				var api_key = '______________';
+				var api_key = 'f3e0b0523a607c49';
 				var url = 'http://api.wunderground.com/api/'+api_key+'/conditions/q/CA/San_Francisco.json?callback=?';
 
 				$.getJSON(url,function(json){
@@ -37,6 +37,13 @@
 					$('#humidity').append(humidity);
 
 					//console.log(json);
+				});
+
+				//second call to get forcast for san fracisco vs current conditions
+				var url2 = 'http://api.wunderground.com/api/'+api_key+'/forecast/q/CA/San_Francisco.json?callback=?';
+				$.getJSON(url2,function(json){
+					//console.log(json);
+					console.log(json.forecast);
 				});
 
 			});

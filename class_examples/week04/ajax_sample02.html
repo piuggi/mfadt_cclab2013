@@ -9,8 +9,10 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
-			var api_key = '____________';
+			var api_key = 'f3e0b0523a607c49';
 			//sample url
+
+			var json_array = []; //array to store all our information in
 
 
 			var api_obj = {
@@ -30,6 +32,8 @@
 					
 					var data = json.current_observation; //create shortcut to data
 
+					json_array.push(data); //pushing all the data into the array
+
 					var temp = data.temperature_string;
 					var humidity = data.relative_humidity;
 					var dewpoint = data.dewpoint_string;
@@ -47,6 +51,23 @@
 
 				});
 			}
+
+			console.log("DATA");
+			console.log(json_array);
+
+			for(var i = 0; i<json_array.length; i++){
+
+				var temp = json_array[i].feelslike_c;
+
+				if(json_array[i].display_location.city =='my city'){
+
+					//conditional to check for cities
+				}
+				console.log("temp: "+ temp);
+
+			}
+
+
 		});
 
 	</script>
